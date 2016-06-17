@@ -1,5 +1,15 @@
 var _=require('underscore')
 // var request=require('JSON')
+// ./bin/www
+var express = require('express')
+var router = express.Router()
+var mongoose = require('mongoose')
+
+var connection = process.env.MONGODB_URI
+if (!connection) {
+	connection = require('./config')
+}
+mongoose.connect(connection)
 var request = require('request');
 var api = require('./config')
 var RtmClient = require('@slack/client').RtmClient;
@@ -87,7 +97,7 @@ getMembers(function(helperIDs) {
 				console.log('\n\n\n')
 				console.log(message)
 				var horizonite = rtm.dataStore.getUserById(message.user)
-				if (message.text.slice(0,5)==='?help') {
+				if ((!_.isUndefined(message.text)) && message.text.slice(0,5)==='?help') {
 					if (message.text.slice(5).trim()==='') {
 						rtm.sendMessage(horizonite.name+', you must specify your struggle in your help call.',
 							api.chID, function messageSent() {})
