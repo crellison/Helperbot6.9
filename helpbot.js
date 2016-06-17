@@ -16,7 +16,7 @@ var RtmClient = require('@slack/client').RtmClient;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
 var RTM_CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS.RTM;
 var apiToken = api.apiTok
-var token = apiToken;
+// var token = apiToken;
 console.log('\n\n\n')
 console.log(api)
 console.log(api.apiTok)
@@ -29,7 +29,7 @@ var usersUrl = 'https://slack.com/api/users.list?token='
 var helpers = ['ethan','moose','lando','joshpaulchan','abhi','lane','darwish']
 
 var channels = ['testbot','help']
-var chID = 'C1FLCK3KL'
+// var chID = 'C1FLCK3KL'
 var TAindex = 0
 
 function getMembers(cb) {
